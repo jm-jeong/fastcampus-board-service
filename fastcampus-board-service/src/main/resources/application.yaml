@@ -40,3 +40,4 @@ spring:
     init:
       mode: always
   test.database.replace: none #document화 안되어있지만 공식문서에선 제공함
+  
