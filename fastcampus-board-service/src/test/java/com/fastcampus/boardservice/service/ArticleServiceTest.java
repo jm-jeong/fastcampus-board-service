@@ -97,7 +97,7 @@ class ArticleServiceTest {
         // Then
         assertThat(t)
                 .isInstanceOf(EntityNotFoundException.class)
-                .hasMessage("게시글이 없습니다 - articleId: " + articleId);
+                .hasMessage("게시글이 없습니다. articleId: " + articleId);
         then(articleRepository).should().findById(articleId);
     }
 
@@ -162,7 +162,20 @@ class ArticleServiceTest {
         then(articleRepository).should().deleteById(articleId);
     }
 
+    @DisplayName("게시글 수를 조회하면, 게시글 수를 반환한다.")
+    @Test
+    void givenNothing_whenCountingArticles_thenReturnArticleCount() {
+        //Given
+        long expected = 0L;
+        given(articleRepository.count()).willReturn(expected);
 
+        //When
+        long actual = sut.getArticleCount();
+
+        //Then
+        assertThat(actual).isEqualTo(expected);
+        then(articleRepository).should().count();
+    }
     private UserAccount createUserAccount() {
         return UserAccount.of(
                 "uno",
