@@ -85,6 +85,6 @@ public class ArticleService {
     }
 
     public List<String> getHashtags() {
-        return articleRepository.findAllDistinctHashtag();
+        return articleRepository.findAllDistinctHashtags();
     }
 }
