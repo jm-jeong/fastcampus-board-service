@@ -8,7 +8,14 @@ import java.util.Objects;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table
+@Table(
+        indexes = {
+                @Index(columnList = "userId", unique = true),
+                @Index(columnList = "email", unique = true),
+                @Index(columnList = "createdAt"),
+                @Index(columnList = "createdBy")
+        }
+)
 @Entity
 public class UserAccount extends AuditingFields {
     @Id
