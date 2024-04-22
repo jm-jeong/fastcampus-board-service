@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Data REST - API 테스트" tests="6" skipped="6" failures="0" errors="0" timestamp="2024-04-22T06:23:11" hostname="mac-jmui-MacBookPro.local" time="0.003">
+  <properties/>
+  <testcase name="[api] 게시글 리스트 조회" classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="[api] 댓글 단건 조회" classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="[api] 게시글 -&gt; 댓글 리스트 조회" classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="[api] 게시글 단건 조회" classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="[api] 댓글 리스트 조회" classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="[api] 회원 관련 API 는 일체 제공하지 않는다." classname="com.fastcampus.boardservice.controller.DataRestTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

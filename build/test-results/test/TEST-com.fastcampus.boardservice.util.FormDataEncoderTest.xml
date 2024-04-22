@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="테스트 도구 - Form 데이터 인코더" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-22T06:23:17" hostname="mac-jmui-MacBookPro.local" time="0.042">
+  <properties/>
+  <testcase name="객체를 넣으면, url encoding 된 form body data 형식의 문자열을 돌려준다." classname="com.fastcampus.boardservice.util.FormDataEncoderTest" time="0.042"/>
+  <system-out><![CDATA[2024-04-22T15:23:15.719+09:00  INFO 60791 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.fastcampus.boardservice.util.FormDataEncoderTest]: FormDataEncoderTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-22T15:23:15.786+09:00  INFO 60791 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.fastcampus.boardservice.FastcampusBoardServiceApplication for test class com.fastcampus.boardservice.util.FormDataEncoderTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v3.1.10)
+
+2024-04-22T15:23:15.835+09:00  INFO 60791 --- [    Test worker] c.f.b.util.FormDataEncoderTest           : Starting FormDataEncoderTest using Java 17.0.10 with PID 60791 (started by jaemin in /Users/jaemin/Documents/Workspace/fastcampus/fastcampus-board-service/fastcampus-board-service)
+2024-04-22T15:23:15.835+09:00 DEBUG 60791 --- [    Test worker] c.f.b.util.FormDataEncoderTest           : Running with Spring Boot v3.1.10, Spring v6.0.18
+2024-04-22T15:23:15.836+09:00  INFO 60791 --- [    Test worker] c.f.b.util.FormDataEncoderTest           : No active profile set, falling back to 1 default profile: "default"
+2024-04-22T15:23:16.219+09:00  INFO 60791 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-22T15:23:16.253+09:00  INFO 60791 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2024-04-22T15:23:16.406+09:00  INFO 60791 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-22T15:23:16.422+09:00  INFO 60791 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-22T15:23:16.423+09:00  INFO 60791 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-04-22T15:23:16.539+09:00  INFO 60791 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e615573
+2024-04-22T15:23:16.539+09:00  INFO 60791 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-04-22T15:23:16.543+09:00  WARN 60791 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-22T15:23:16.758+09:00  INFO 60791 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table article 
+       drop 
+       foreign key FK81hjxo20c0so6pxe8rjpjlhj4
+Hibernate: 
+    alter table article_comment 
+       drop 
+       foreign key FKghmocqkgqs5tkmucf5putw64t
+Hibernate: 
+    alter table article_comment 
+       drop 
+       foreign key FK67dybe2dob8uvrr7fyicyb1no
+Hibernate: 
+    drop table if exists article
+Hibernate: 
+    drop table if exists article_comment
+Hibernate: 
+    drop table if exists user_account
+Hibernate: 
+    create table article (
+        created_at datetime(6) not null,
+        id bigint not null auto_increment,
+        modified_at datetime(6) not null,
+        user_id varchar(50) not null,
+        created_by varchar(100) not null,
+        modified_by varchar(100) not null,
+        content varchar(10000) not null,
+        hashtag varchar(255),
+        title varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create table article_comment (
+        article_id bigint not null,
+        created_at datetime(6) not null,
+        id bigint not null auto_increment,
+        modified_at datetime(6) not null,
+        user_id varchar(50) not null,
+        created_by varchar(100) not null,
+        modified_by varchar(100) not null,
+        content varchar(500) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create table user_account (
+        created_at datetime(6) not null,
+        modified_at datetime(6) not null,
+        user_id varchar(50) not null,
+        created_by varchar(100) not null,
+        email varchar(100),
+        modified_by varchar(100) not null,
+        nickname varchar(100),
+        memo varchar(255),
+        user_password varchar(255) not null,
+        primary key (user_id)
+    ) engine=InnoDB
+Hibernate: 
+    create index IDX571gx7oqo5xpmgocegaidlcu9 
+       on article (title)
+Hibernate: 
+    create index IDXai44fu6vaa28ebpydglnv7t3e 
+       on article (hashtag)
+Hibernate: 
+    create index IDXrmt77yibijtk4sarremr67saa 
+       on article (created_at)
+Hibernate: 
+    create index IDXjl4utii2etiocimt799wvtuvv 
+       on article (created_by)
+Hibernate: 
+    create index IDXpieqqnljv147sefofs56h25qx 
+       on article_comment (content)
+Hibernate: 
+    create index IDXh1jx107qecntcbcpc2vfb07ij 
+       on article_comment (created_at)
+Hibernate: 
+    create index IDXc6pa61djuf2o8xnceyyvtdbaq 
+       on article_comment (created_by)
+Hibernate: 
+    create index IDXogja11wxoxigeh554wd4094xv 
+       on user_account (created_at)
+Hibernate: 
+    create index IDX9twf822xbr2e0qcmnxueulgfw 
+       on user_account (created_by)
+Hibernate: 
+    alter table user_account 
+       add constraint UKhl02wv5hym99ys465woijmfib unique (email)
+Hibernate: 
+    alter table article 
+       add constraint FK81hjxo20c0so6pxe8rjpjlhj4 
+       foreign key (user_id) 
+       references user_account (user_id)
+Hibernate: 
+    alter table article_comment 
+       add constraint FKghmocqkgqs5tkmucf5putw64t 
+       foreign key (article_id) 
+       references article (id)
+Hibernate: 
+    alter table article_comment 
+       add constraint FK67dybe2dob8uvrr7fyicyb1no 
+       foreign key (user_id) 
+       references user_account (user_id)
+2024-04-22T15:23:17.102+09:00  INFO 60791 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-22T15:23:17.706+09:00  INFO 60791 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2fe4a108, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c671bcb, org.springframework.security.web.context.SecurityContextHolderFilter@5baab8b6, org.springframework.security.web.header.HeaderWriterFilter@491d31d9, org.springframework.security.web.csrf.CsrfFilter@4f0908de, org.springframework.security.web.authentication.logout.LogoutFilter@13d32361, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@25a656f6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@513b2cda, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@abdeaf6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c6204e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@718858cb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d3b0cb1, org.springframework.security.web.access.ExceptionTranslationFilter@19469022, org.springframework.security.web.access.intercept.AuthorizationFilter@287bdaf3]
+2024-04-22T15:23:17.972+09:00  INFO 60791 --- [    Test worker] c.f.b.util.FormDataEncoderTest           : Started FormDataEncoderTest in 2.179 seconds (process running for 23.918)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
